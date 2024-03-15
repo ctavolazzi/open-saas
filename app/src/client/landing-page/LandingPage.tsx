@@ -13,6 +13,10 @@ import { DOCS_URL } from '../../shared/constants';
 import { UserMenuItems } from '../components/UserMenuItems';
 import DarkModeSwitcher from '../admin/components/DarkModeSwitcher';
 
+
+import TypingEffect from './TypingEffect'; // Adjust the import path as necessary
+
+
 export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -152,18 +156,19 @@ export default function LandingPage() {
           <div className='py-24 sm:py-32'>
             <div className='mx-auto max-w-8xl px-6 lg:px-8'>
               <div className='lg:mb-18 mx-auto max-w-3xl text-center'>
+                  {/* <TypingEffect text="This is where the typing effect text goes..."/> */}
                 <h1 className='text-4xl font-bold text-gray-900 sm:text-6xl dark:text-white'>
-                  Some <span className='italic'>cool</span> words about your product
+                  <TypingEffect text="NovaSystem" />
                 </h1>
-                <p className='mt-6 mx-auto max-w-2xl text-lg leading-8 text-gray-600 dark:text-white'>
-                  With some more exciting words about your product!
-                </p>
+                <h2 className='mt-6 text-xl text-gray-600 dark:text-white'>
+                  Mutiple AI models - <b>one easy dashboard.</b>
+                </h2>
                 <div className='mt-10 flex items-center justify-center gap-x-6'>
                   <a
                     href={DOCS_URL}
                     className='rounded-md px-3.5 py-2.5 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-200 hover:ring-2 hover:ring-yellow-300 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:text-white'
                   >
-                    Get Started <span aria-hidden='true'>→</span>
+                    Try the demo <span aria-hidden='true'>→</span>
                   </a>
                 </div>
               </div>
@@ -253,7 +258,7 @@ export default function LandingPage() {
         <div id='features' className='mx-auto mt-48 max-w-7xl px-6 lg:px-8'>
           <div className='mx-auto max-w-2xl text-center'>
             <p className='mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-white'>
-              The <span className='text-yellow-500'>Best</span> Features
+              Accelerate <span className='text-yellow-500'>Your</span> Workflow
             </p>
             <p className='mt-6 text-lg leading-8 text-gray-600 dark:text-white'>
               Don't work harder.
@@ -312,23 +317,108 @@ export default function LandingPage() {
             Frequently asked questions
           </h2>
           <dl className='mt-10 space-y-8 divide-y divide-gray-900/10'>
-            {faqs.map((faq) => (
-              <div key={faq.id} className='pt-8 lg:grid lg:grid-cols-12 lg:gap-8'>
-                <dt className='text-base font-semibold leading-7 text-gray-900 lg:col-span-5 dark:text-white'>
+          {faqs.map((faq, index) => {
+            const [isOpen, setIsOpen] = useState(false);
+
+            return (
+              <div 
+                key={faq.id} 
+                className={`pt-8 lg:grid lg:grid-cols-12 lg:gap-8 ${index !== 0 ? 'border-t border-gray-200' : ''}`}
+              >
+                <dt 
+                  className='text-lg font-semibold leading-7 text-gray-900 lg:col-span-5 dark:text-white cursor-pointer hover:text-blue-500' 
+                  onClick={() => setIsOpen(!isOpen)}
+                >
                   {faq.question}
                 </dt>
-                <dd className='flex items-center justify-start gap-2 mt-4 lg:col-span-7 lg:mt-0'>
-                  <p className='text-base leading-7 text-gray-600 dark:text-white'>{faq.answer}</p>
-                  {faq.href && (
-                    <a href={faq.href} className='text-base leading-7 text-yellow-500 hover:text-yellow-600'>
-                      Learn more →
-                    </a>
-                  )}
-                </dd>
+                {isOpen && (
+                  <dd className='flex items-center justify-start gap-2 mt-4 lg:col-span-7 lg:mt-0'>
+                    <p className='text-base leading-7 text-gray-600 dark:text-white'>{faq.answer}</p>
+                    {faq.href && (
+                      <a href={faq.href} className='text-base leading-7 text-yellow-500 hover:text-yellow-600'>
+                        Learn more →
+                      </a>
+                    )}
+                  </dd>
+                )}
               </div>
-            ))}
+            );
+          })}          
           </dl>
         </div>
+  {/* Main headline */}
+<div className='mx-auto max-w-2xl text-center'>
+  <h1 className='mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-white'>
+    Create Your Fate
+  </h1>
+  <p className='mt-6 text-lg leading-8 text-gray-600 dark:text-white'>
+    A Choose-Your-Own-Adventure Like No Other
+  </p>
+  <p className='mt-6 text-lg leading-8 text-gray-600 dark:text-white'>
+    Venture beyond the stars in Teleport Massive, an expansive science fiction universe where your choices shape the future. Engage with advanced civilizations, explore distant worlds, and unravel the mysteries of a galaxy on the brink of transformation. Each journey promises new challenges, alliances, and discoveries. Become part of a story that spans the cosmos and defines your legacy among the stars.
+  </p>
+</div>
+
+{/* What is Teleport Massive? section */}
+<div className='mx-auto mt-16 max-w-2xl'>
+  <h2 className='text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>What is Teleport Massive?</h2>
+  <p className='mt-4 text-lg leading-8 text-gray-600 dark:text-white'>
+    A Choose-Your-Own-Adventure story unlike any you've ever had awaits you just on the other side of the Dark Matter Veil...
+  </p>
+  <p className='mt-4 text-lg leading-8 text-gray-600 dark:text-white'>
+    A sinister plot has left the Mayor missing. Civil unrest is growing, and you are her only hope for survival.
+  </p>
+  <p className='mt-4 text-lg leading-8 text-gray-600 dark:text-white'>
+    Can you uncover the secrets and mysteries of Teleport Massive before it's too late?
+  </p>
+</div>
+
+{/* Content boxes */}
+<div className='mx-auto mt-32 max-w-7xl px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
+  <div>
+    <img src="story-so-far.jpg" alt="The Story So Far" className='w-full h-48 object-cover rounded-lg' />
+    <h3 className='mt-4 text-xl font-semibold text-gray-900 dark:text-white'>The Story So Far</h3>
+    <p className='mt-2 text-base text-gray-600 dark:text-white'>From the rise of AGI to humanity's ascent among the stars, learn about the pivotal events that shape the universe. Understand the Ascension Cycle and your place within it.</p>
+    <a href="#" className='mt-4 inline-block text-yellow-500 hover:text-yellow-600'>Discover the History →</a>
+  </div>
+  <div>
+    <img src="meet-the-factions.jpg" alt="Meet the Factions" className='w-full h-48 object-cover rounded-lg' />
+    <h3 className='mt-4 text-xl font-semibold text-gray-900 dark:text-white'>Meet the Factions</h3>
+    <p className='mt-2 text-base text-gray-600 dark:text-white'>The galaxy is teeming with life - from the enigmatic Neo-Sapiens to the industrious Polymorphs. Get to know the various factions that hold power, and how you might align or contend with them.</p>
+    <a href="#" className='mt-4 inline-block text-yellow-500 hover:text-yellow-600'>Explore the Factions →</a>
+  </div>
+  <div>
+    <img src="players-toolkit.jpg" alt="Player's Toolkit" className='w-full h-48 object-cover rounded-lg' />
+    <h3 className='mt-4 text-xl font-semibold text-gray-900 dark:text-white'>Player's Toolkit</h3>
+    <p className='mt-2 text-base text-gray-600 dark:text-white'>Ready to join? Equip yourself with the knowledge to navigate the cosmos. From character creation to your first quantum leap, find out what it takes to thrive in the Teleport Massive universe.</p>
+    <a href="#" className='mt-4 inline-block text-yellow-500 hover:text-yellow-600'>Get Started →</a>
+  </div>
+  <div>
+    <img src="community-chronicles.jpg" alt="Community Chronicles" className='w-full h-48 object-cover rounded-lg' />
+    <h3 className='mt-4 text-xl font-semibold text-gray-900 dark:text-white'>Community Chronicles</h3>
+    <p className='mt-2 text-base text-gray-600 dark:text-white'>Our players' feats and stories are the heartbeat of Teleport Massive. Read tales of epic quests, clever strategies, and battle bonds. Who knows; yours might be featured next...</p>
+    <a href="#" className='mt-4 inline-block text-yellow-500 hover:text-yellow-600'>Read Player Stories →</a>
+  </div>
+</div>
+
+{/* Connect with the Cosmos section */}
+<div className='mx-auto mt-32 max-w-7xl px-6 lg:px-8'>
+  <h2 className='text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>Connect with the Cosmos</h2>
+  <p className='mt-4 text-lg leading-8 text-gray-600 dark:text-white'>
+    Subscribe to Teleport Massive HQ - your weekly warp through the latest galaxy news, updates, and exclusive insights. Join our community of interstellar adventurers and never miss a beat in the universe of Teleport Massive.
+  </p>
+  <ul className='mt-8 space-y-4 text-base text-gray-600 dark:text-white list-disc list-inside'>
+    <li>Receive the latest news, patch notes, and updates directly to your inbox</li>
+    <li>Stay ahead of the game and on the pulse of the cosmos</li>
+    <li>Expert advice, strategy guides, and behind-the-scenes looks</li>
+    <li>Subscriber-only contests, giveaways, and special promotions</li>
+  </ul>
+  <div className='mt-8 flex space-x-4'>
+    <a href="#" className='inline-block bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600'>Get the newsletter</a>
+    <a href="#" className='inline-block text-yellow-500 hover:text-yellow-600'>Learn more</a>
+  </div>
+</div>
+
       </main>
 
       {/* Footer */}

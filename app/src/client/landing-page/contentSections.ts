@@ -10,27 +10,27 @@ export const navigation = [
 ];
 export const features = [
   {
-    name: 'Cool Feature #1',
-    description: 'Describe your cool feature here.',
+    name: 'Your team of AI Agents',
+    description: 'Manage a team of personalized AI agents.',
+    icon: '🤖',
+    href: DOCS_URL,
+  },
+  {
+    name: 'Collaborating together',
+    description: 'Agents work together in one complete system.',
     icon: '🤝',
     href: DOCS_URL,
   },
   {
-    name: 'Cool Feature #2',
-    description: 'Describe your cool feature here.',
-    icon: '🔐',
+    name: 'Solving complex problems',
+    description: 'Multi-stage problem solving with ease.',
+    icon: '🧩',
     href: DOCS_URL,
   },
   {
-    name: 'Cool Feature #3',
-    description: 'Describe your cool feature here.',
-    icon: '🥞',
-    href: DOCS_URL,
-  },
-  {
-    name: 'Cool Feature #4',
-    description: 'Describe your cool feature here.',
-    icon: '💸',
+    name: 'So you can rest easy.',
+    description: 'Agents work 24/7 so you don\'t have to.',
+    icon: '🕊',
     href: DOCS_URL,
   },
 ];
@@ -62,9 +62,34 @@ export const faqs = [
   {
     id: 1,
     question: 'Whats the meaning of life?',
-    answer: '42.',
+    answer: '42, of course.',
     href: 'https://en.wikipedia.org/wiki/42_(number)',
   },
+  {
+    id: 2,
+    question: 'What is the speed of light?',
+    answer: 'Approximately 299,792 kilometers per second.',
+    href: 'https://en.wikipedia.org/wiki/Speed_of_light',
+  },
+  {
+    id: 3,
+    question: 'What is the distance from Earth to the Moon?',
+    answer: 'Approximately 384,400 kilometers.',
+    href: 'https://en.wikipedia.org/wiki/Moon',
+  },
+  {
+    id: 4,
+    question: 'What is the Pythagorean theorem?',
+    answer: 'In a right angled triangle, the square of the hypotenuse side is equal to the sum of squares of the other two sides.',
+    href: 'https://en.wikipedia.org/wiki/Pythagorean_theorem',
+  },
+  {
+    id: 5,
+    question: 'What is the capital of Australia?',
+    answer: 'Canberra.',
+    href: 'https://en.wikipedia.org/wiki/Canberra',
+  },
+  // Add more FAQs as needed
 ];
 export const footerNavigation = {
   app: [
